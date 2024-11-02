@@ -1,7 +1,17 @@
+using cmap_timesheet_system.Data;
+using Microsoft.EntityFrameworkCore;
+using cmap_timesheet_system.Interfaces;
+using cmap_timesheet_system.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ITimesheetService, TimesheetService>();
+// In-memory database:
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseInMemoryDatabase("TimesheetDB"));
 
 var app = builder.Build();
 

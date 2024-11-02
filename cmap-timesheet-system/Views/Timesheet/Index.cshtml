@@ -1,0 +1,31 @@
+﻿@model TimesheetEntry
+@{
+    ViewData["Title"] = "Timesheet Entry";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Timesheet Entry</h1>
+
+    <form asp-controller="Timesheet" asp-action="AddEntry" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <label>Username: <input asp-for="UserName" /></label> <br />
+        <span asp-validation-for="UserName"></span><br />
+        
+        <label>Date: <input asp-for="Date" /></label><br />
+        <span asp-validation-for="Date"></span><br />
+        
+        <label>Project: <input asp-for="ProjectName" /></label> <br />
+        <span asp-validation-for="ProjectName"></span><br />
+        
+        <label>Description of Tasks: <input asp-for="TaskDescription" /></label><br />
+        <span asp-validation-for="TaskDescription"></span><br />
+        
+        <label>Hours Worked: <input asp-for="HoursWorked" /></label> <br />
+        <span asp-validation-for="HoursWorked"></span><br />
+        
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
